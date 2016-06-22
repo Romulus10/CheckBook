@@ -5,11 +5,21 @@ var current_account;
 var lib;
 var total;
 
+// From Douglas Crockford's Remedial JavaScript
+String.prototype.supplant = function (o) {
+    return this.replace(/{([^{}]*)}/g,
+        function (a, b) {
+            var r = o[b];
+            return typeof r === 'string' || typeof r === 'number' ? r : a;
+        }
+    );
+};
+
 window.onload = function(){
 	total = 0;
 	count = 0;
 	document.getElementById("account").innerHTML = "None";
-	document.getElementById("total").innerHTML = "$0.00";
+	document.getElementById("total").innerHTML = "$0";
 	lib = new localStorageDB("library", localStorage);
 	if (lib.isNew()){
 		console.log("First time launching.");
@@ -62,9 +72,12 @@ delTransaction = function(){
 checkDatabase = function(){
 	var full = lib.queryAll(current_account);
 	var len = full.length;
+	var string = "";
 	for (var i = 0; i < len; i++){
 		console.log(full[i]);
+		string += "<input type=checkbox>{0}    {1}    {2}    {3}<br>".supplant([full[i].name, full[i].category, full[i].date, full[i].amount]);
 	}
+	document.getElementById("transactions").innerHTML = string;
 	document.getElementById("total").innerHTML = "$" + total;
 }
 
