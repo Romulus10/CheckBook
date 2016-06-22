@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="stylesheet" href="app.css" type="text/css" media="screen,mobile" title="main" charset="utf-8" />
+		<link rel="apple-touch-icon" href="images/app.png" />
+		<title>CheckBook</title>
+		<script src="bower_components/localStorageDB/localstoragedb.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<div id="title"><h1>CheckBook</h1></div>
+		<table>
+			<td>
+				<th>
+					<button onclick="newTable()">New</button>
+				</th>
+				<th>
+					<button onclick="addTransaction()">Add</button>
+				</th>
+				<th>
+					<button onclick="delTransaction()">Delete</button>
+				</th>
+				<th>
+					<button onclick="switchAccount()">Switch Account</button>
+				</th>
+			</td>
+		</table>
+		
+		<h3>Active Account</h4>
+		<h4><div id="account"></div></h4>
+		
+		<h4><div id="total"></div></h4>
+		
+		<h2>Categories</h2>
+		<div id="category_list">
+			
+		</div>
+		<h2>Transactions</h2>
+		<div id="transactions">
+			
+		</div>
+		<div id="info">
+			<table>
+				<td>
+					<th>
+						Created by Romulus10
+					</th>
+					<th>
+						Version 0.0.0.1
+					</th>
+					<th>
+						6/22/2016
+					</th>
+				</td>
+			</table>
+		</div>
+	</body>
+</html>

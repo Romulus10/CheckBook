@@ -1,0 +1,15 @@
+{
+  "name": "CheckBook",
+  "description": "Firefox OS App Package for CheckBook",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/images/app.png",
+    "128": "/images/app.png"
+  },
+  "developer": {
+    "name": "Romulus10",
+    "url": "Romulus10.github.io"
+  },
+  "default_locale": "en",
+  "chrome": { "navigation": true }
+}
