@@ -60,7 +60,7 @@ addTransaction = function(){
 
 delTransaction = function(){
 	console.log("Removing transaction from database.");
-	var checked = document.querySelector('Checkbox:checked').value;
+	var checked = [];
 	console.log(checked);
 	for (var i = 0; i < checked.length; i++){
 		lib.deleteRows(current_account, {ID: checked[i]});
@@ -87,4 +87,16 @@ switchAccount = function(){
 	document.getElementById("account").innerHTML = name;
 	document.getElementById("total").innerHTML = "$0.00";
 	checkDatabase();
+}
+
+reset = function(){
+	console.log("Displaying reset dialog.");
+	var choose = confirm("This will delete ALL app data. Are you sure you want to continue?");
+	if (choose){
+		console.log("Reset.");
+		localStorage.clear();
+	}
+	else{
+		console.log("Reset cancelled.");
+	}
 }
