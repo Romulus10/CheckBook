@@ -32,6 +32,16 @@ window.onload = function(){
 		console.log("Database already exists.");
 	}
 	alert("Offline use of this app is not yet supported.");
+	var cook = document.cookie;
+	if (cook != ("version=" + version)){
+	    var appCache = window.applicationCache;
+	    console.log(appCache.status());
+         appCache.update();
+     if (appCache.status == window.applicationCache.UPDATEREADY) {
+         appCache.swapCache();
+     }
+     document.cookie = "version=" + version;
+     }
 }
 
 newTable = function(){
