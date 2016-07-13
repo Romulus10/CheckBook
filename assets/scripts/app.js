@@ -35,7 +35,7 @@ window.onload = function(){
 	var cook = document.cookie;
 	if (cook != ("version=" + version)){
 	    var appCache = window.applicationCache;
-	    console.log(appCache.status());
+	    console.log(appCache.status);
          appCache.update();
      if (appCache.status == window.applicationCache.UPDATEREADY) {
          appCache.swapCache();
