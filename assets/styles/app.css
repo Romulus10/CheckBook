@@ -3,12 +3,19 @@
 }
 
 body{
+
 }
 
 h1{
-text-align: center;
+    text-align: center;
+    font-size: 35pt;
 }
 
 #menu{
-width: 100%;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    height: 40px;
 }
