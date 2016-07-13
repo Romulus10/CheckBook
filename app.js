@@ -4,6 +4,8 @@
 var current_account;
 var lib;
 var total;
+var version = "0.1.0.0"
+var date = "7/12/16"
 
 // From Douglas Crockford's Remedial JavaScript
 String.prototype.supplant = function (o) {
@@ -20,6 +22,8 @@ window.onload = function(){
 	count = 0;
 	document.getElementById("account").innerHTML = "None";
 	document.getElementById("total").innerHTML = "$0";
+	document.getElementById("version").innerHTML = version;
+	document.getElementById("date").innerHTML = date;
 	lib = new localStorageDB("library", localStorage);
 	if (lib.isNew()){
 		console.log("First time launching.");
@@ -27,6 +31,7 @@ window.onload = function(){
 	else{
 		console.log("Database already exists.");
 	}
+	alert("Offline use of this app is not yet supported.");
 }
 
 newTable = function(){
