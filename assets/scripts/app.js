@@ -5,7 +5,7 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.1.3";
+var version = "0.1.1.4";
 var date = "7/14/16";
 var dictionary = {};
 
@@ -60,6 +60,7 @@ newTable = function () {
     }
     lib.commit();
     console.log("Account " + name + " created.");
+    dictionary = {};
     checkDatabase();
 };
 
@@ -110,6 +111,8 @@ checkDatabase = function () {
             console.log("key is {0}, value is {1}".supplant([full[i].category, dictionary[full[i].category]]))
         }
         else {
+            console.log("DEBUG: transaction amount " + full[i].amount);
+            console.log("DEBUG: current category amount " + dictionary[full[i].category]);
             dictionary[full[i].category] = dictionary[full[i].category] + parseFloat(full[i].amount);
         }
     }
@@ -123,6 +126,7 @@ checkDatabase = function () {
     document.getElementById("category_list").innerHTML = categories;
     document.getElementById("transactions").innerHTML = string;
     document.getElementById("total").innerHTML = "$" + total;
+    console.log("DEBUG: the current total is {0}".supplant([total]));
 };
 
 switchAccount = function () {
