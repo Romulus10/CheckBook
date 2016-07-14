@@ -5,7 +5,7 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.1.4";
+var version = "0.1.2.0";
 var date = "7/14/16";
 var dictionary = {};
 
@@ -33,6 +33,7 @@ window.onload = function () {
     else {
         console.log("Database already exists.");
     }
+    alert("Categories are not working yet.");
     //alert("Offline use of this app is not yet supported."); Removed in v0.1.1 revision 2
     var cook = document.cookie;
     if (cook != ("version=" + version)) {
@@ -56,7 +57,6 @@ newTable = function () {
     }
     catch (err) {
         console.log(err);
-        alert("Account " + name + " already exists.");
     }
     lib.commit();
     console.log("Account " + name + " created.");
@@ -97,26 +97,41 @@ delTransaction = function (id) {
 };
 
 checkDatabase = function () {
+    console.log("**********************************************");
+    console.log("RELOADING DATABASE");
+    console.log("**********************************************");
     var full = lib.queryAll(current_account);
+    console.log(full);
     var len = full.length;
+    console.log("Number of database indices- " + len);
     var string = "<table id='transaction_table'>";
+    console.log(string);
     var categories = "<table id='category_table'>";
+    console.log(categories);
     total = 0;
+    dictionary = {}; // Fixes a multiplying category value bug.
+    console.log("Current total: " + total);
     for (var i = 0; i < len; i++) {
         console.log(full[i]);
         string += "<tr><th><input id='{0}' type=button onclick='delTransaction(this.id)'></th><th>{1}</th><th>{2}</th><th>{3}</th><th>${4}</th></tr>".supplant([full[i].ID, full[i].name, full[i].category, full[i].date, full[i].amount]);
+        console.log(string);
         total = total + parseFloat(full[i].amount);
+        console.log("Current total: " + total);
         if (!dictionary.hasOwnProperty(full[i].category)) {
+            console.log("Category exists.");
             dictionary[full[i].category] = parseFloat(full[i].amount);
             console.log("key is {0}, value is {1}".supplant([full[i].category, dictionary[full[i].category]]))
         }
         else {
+            console.log("Category does not exist.");
             console.log("DEBUG: transaction amount " + full[i].amount);
             console.log("DEBUG: current category amount " + dictionary[full[i].category]);
             dictionary[full[i].category] = dictionary[full[i].category] + parseFloat(full[i].amount);
         }
     }
     for (var k in dictionary) {
+        console.log("key: " + k);
+        console.log("value: " + dictionary[k]);
         categories = categories + ("<tr><th>{0}:</th><th>${1}</th></tr>".supplant([k, dictionary[k]]));
     }
     string = string + "</table>";
