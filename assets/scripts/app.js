@@ -5,7 +5,7 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.1.1";
+var version = "0.1.1.2";
 var date = "7/14/16";
 
 // From Douglas Crockford's Remedial JavaScript
@@ -32,7 +32,7 @@ window.onload = function () {
     else {
         console.log("Database already exists.");
     }
-    alert("Offline use of this app is not yet supported.");
+    //alert("Offline use of this app is not yet supported."); Removed in v0.1.1 revision 2
     var cook = document.cookie;
     if (cook != ("version=" + version)) {
         var appCache = window.applicationCache;
