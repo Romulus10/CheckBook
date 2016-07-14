@@ -5,8 +5,9 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.1.2";
+var version = "0.1.1.3";
 var date = "7/14/16";
+var dictionary = {};
 
 // From Douglas Crockford's Remedial JavaScript
 String.prototype.supplant = function (o) {
@@ -74,6 +75,19 @@ addTransaction = function () {
     checkDatabase();
 };
 
+subTransaction = function () {
+    console.log("Adding new transaction to database.");
+    var n = prompt("Transaction name:");
+    var c = prompt("Transaction category:");
+    var d = prompt("Transaction date:");
+    var a = prompt("Amount:");
+    a = a * -1;
+    total = parseFloat(total) + parseFloat(a);
+    lib.insert(current_account, {name: n, category: c, date: d, amount: a});
+    lib.commit();
+    checkDatabase();
+};
+
 delTransaction = function (id) {
     console.log("Removing transaction {0} from database.".supplant([id]));
     lib.deleteRows(current_account, {ID: id});
@@ -85,13 +99,28 @@ checkDatabase = function () {
     var full = lib.queryAll(current_account);
     var len = full.length;
     var string = "<table id='transaction_table'>";
+    var categories = "<table id='category_table'>";
     total = 0;
     for (var i = 0; i < len; i++) {
         console.log(full[i]);
         string += "<tr><th><input id='{0}' type=button onclick='delTransaction(this.id)'></th><th>{1}</th><th>{2}</th><th>{3}</th><th>${4}</th></tr>".supplant([full[i].ID, full[i].name, full[i].category, full[i].date, full[i].amount]);
         total = total + parseFloat(full[i].amount);
+        if (!dictionary.hasOwnProperty(full[i].category)) {
+            dictionary[full[i].category] = parseFloat(full[i].amount);
+            console.log("key is {0}, value is {1}".supplant([full[i].category, dictionary[full[i].category]]))
+        }
+        else {
+            dictionary[full[i].category] = dictionary[full[i].category] + parseFloat(full[i].amount);
+        }
+    }
+    for (var k in dictionary) {
+        categories = categories + ("<tr><th>{0}:</th><th>${1}</th></tr>".supplant([k, dictionary[k]]));
     }
     string = string + "</table>";
+    categories = categories + "</table>";
+    console.log(categories);
+    console.log(dictionary);
+    document.getElementById("category_list").innerHTML = categories;
     document.getElementById("transactions").innerHTML = string;
     document.getElementById("total").innerHTML = "$" + total;
 };
