@@ -1,1 +1,11 @@
-# Cache Version 0
+# Cache Version 1
+
+CACHE:
+assets/scripts/app.js
+assets/styles/app.css
+bower_components/localStorageDB/.bower.json
+bower_components/localStorageDB/bower.json
+bower_components/localStorageDB/CHANGELOG
+bower_components/localStorageDB/localstoragedb.js
+bower_components/localStorageDB/localstoragedb.min.js
+index.html

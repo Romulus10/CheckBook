@@ -5,8 +5,8 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.1.0";
-var date = "7/12/16";
+var version = "0.1.1.1";
+var date = "7/14/16";
 
 // From Douglas Crockford's Remedial JavaScript
 String.prototype.supplant = function (o) {
@@ -91,7 +91,7 @@ checkDatabase = function () {
         string += "<tr><th><input id='{0}' type=button onclick='delTransaction(this.id)'></th><th>{1}</th><th>{2}</th><th>{3}</th><th>${4}</th></tr>".supplant([full[i].ID, full[i].name, full[i].category, full[i].date, full[i].amount]);
         total = total + parseFloat(full[i].amount);
     }
-    string = string + "</table>"
+    string = string + "</table>";
     document.getElementById("transactions").innerHTML = string;
     document.getElementById("total").innerHTML = "$" + total;
 };
