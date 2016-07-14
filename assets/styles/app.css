@@ -1,5 +1,6 @@
 #info{
 	font-size: 10px;
+    text-align: left;
 }
 
 body{
@@ -18,4 +19,15 @@ h1{
 button {
     width: 100%;
     height: 40px;
+}
+
+#transactions {
+    width:100%;
+    height:100%;
+}
+
+#transaction_table {
+    margin: 0 auto;
+    width:100%;
+    height:100%;
 }
