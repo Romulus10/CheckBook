@@ -5,7 +5,7 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.0.1";
+var version = "0.1.1.0";
 var date = "7/12/16";
 
 // From Douglas Crockford's Remedial JavaScript
@@ -74,13 +74,9 @@ addTransaction = function () {
     checkDatabase();
 };
 
-delTransaction = function () {
-    console.log("Removing transaction from database.");
-    var checked = [];
-    console.log(checked);
-    for (var i = 0; i < checked.length; i++) {
-        lib.deleteRows(current_account, {ID: checked[i]});
-    }
+delTransaction = function (id) {
+    console.log("Removing transaction {0} from database.".supplant([id]));
+    lib.deleteRows(current_account, {ID: id});
     lib.commit();
     checkDatabase();
 };
@@ -88,11 +84,14 @@ delTransaction = function () {
 checkDatabase = function () {
     var full = lib.queryAll(current_account);
     var len = full.length;
-    var string = "";
+    var string = "<table id='transaction_table'>";
+    total = 0;
     for (var i = 0; i < len; i++) {
         console.log(full[i]);
-        string += "<input type=checkbox>{0}    {1}    {2}    {3}<br>".supplant([full[i].name, full[i].category, full[i].date, full[i].amount]);
+        string += "<tr><th><input id='{0}' type=button onclick='delTransaction(this.id)'></th><th>{1}</th><th>{2}</th><th>{3}</th><th>${4}</th></tr>".supplant([full[i].ID, full[i].name, full[i].category, full[i].date, full[i].amount]);
+        total = total + parseFloat(full[i].amount);
     }
+    string = string + "</table>"
     document.getElementById("transactions").innerHTML = string;
     document.getElementById("total").innerHTML = "$" + total;
 };
