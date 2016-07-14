@@ -31,3 +31,7 @@ button {
     width:100%;
     height:100%;
 }
+
+#category_table {
+    margin: 0 auto;
+}
