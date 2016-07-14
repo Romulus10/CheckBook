@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c0f916d-7c19-465d-b417-ad534728d828" name="Default" comment="More formatting.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Sean_Batzel.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Sean_Batzel.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/scripts/app.js" afterPath="$PROJECT_DIR$/assets/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/styles/app.css" afterPath="$PROJECT_DIR$/assets/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="1c0f916d-7c19-465d-b417-ad534728d828" name="Default" comment="More formatting." />
     <ignored path="CheckBook.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -265,7 +259,7 @@
       <workItem from="1468419040974" duration="3662000" />
       <workItem from="1468423182233" duration="596000" />
       <workItem from="1468434120193" duration="694000" />
-      <workItem from="1468504266054" duration="4073000" />
+      <workItem from="1468504266054" duration="4110000" />
     </task>
     <task id="LOCAL-00001" summary="Some formatting and stuff.">
       <created>1468420696860</created>
@@ -292,11 +286,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9123000" />
+    <option name="totallyTimeSpent" value="9160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
