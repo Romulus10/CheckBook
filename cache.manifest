@@ -1,6 +1,6 @@
 # Cache Version 2
 
-CACHE:
+CACHE MANIFEST
 assets/scripts/app.js
 assets/styles/app.css
 bower_components/localStorageDB/.bower.json
