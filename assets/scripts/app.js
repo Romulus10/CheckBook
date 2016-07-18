@@ -163,3 +163,9 @@ reset = function () {
         console.log("Reset cancelled.");
     }
 };
+
+print = function(){
+console.log("Creating new printable page.");
+x = lib.queryAll();
+console.log(x);
+};
