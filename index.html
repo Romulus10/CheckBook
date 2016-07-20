@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<link rel="stylesheet" href="assets/styles/app.css" type="text/css" media="screen,mobile" title="main" charset="utf-8" />
-		<link rel="apple-touch-icon" href="assets/images/app.png" />
-		<title>CheckBook</title>
-		<script src="bower_components/localStorageDB/localstoragedb.js"></script>
-		<script src="assets/scripts/app.js"></script>
-	</head>
-	<body>
-		<div id="title"><h1>CheckBook</h1></div>
-		<table id="menu">
-			<td>
-				<th>
-					<button onclick="newTable()">New</button>
-				</th>
-				<th>
-                    <button onclick="addTransaction()">Income</button>
-				</th>
-            <th>
-                <button onclick="subTransaction()">Expense</button>
-            </th>
-				<th>
-					<button onclick="switchAccount()">Switch Account</button>
-				</th>
-			</td>
-		</table>
-		<h3 id="active">Active Account</h3>
-		<h4><div id="account"></div></h4>
-		<h4><div id="total"></div></h4>
-		<h2 id="categories">Categories</h2>
-		<div id="category_list">
-		</div>
-		<h2 id="transactions_title">Transactions</h2>
-		<form>
-		<div id="transactions">
-		</div>
-		</form>
-		<div id="info">
-			<table>
-				<td>
-					<th>
-						Created by Romulus10
-					</th>
-					<th id="version">
-					</th>
-					<th id="date">
-					</th>
-					<th id="help">
-					<a href="assets/pages/help.html">Help</a>
-					</th>
-					<th id="print">
-					<a href="javascript:print()">Print</a>
-					</th>
-				</td>
-			</table>
-		</div>
-	</body>
+<head>
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="stylesheet" href="assets/styles/app.css" type="text/css" media="screen,mobile" title="main"
+          charset="utf-8"/>
+    <link rel="apple-touch-icon" href="assets/images/app.png"/>
+    <title>CheckBook</title>
+    <script src="bower_components/localStorageDB/localstoragedb.js"></script>
+    <script src="assets/scripts/app.js"></script>
+</head>
+<body>
+<div id="title"><h1>CheckBook</h1></div>
+<table id="menu">
+    <td>
+    <th>
+        <button onclick="newTable()">New</button>
+    </th>
+    <th>
+        <button onclick="addTransaction()">Income</button>
+    </th>
+    <th>
+        <button onclick="subTransaction()">Expense</button>
+    </th>
+    <th>
+        <button onclick="switchAccount()">Switch Account</button>
+    </th>
+    </td>
+</table>
+<h3 id="active">Active Account</h3>
+<h4>
+    <div id="account"></div>
+</h4>
+<h4>
+    <div id="total"></div>
+</h4>
+<h2 id="categories">Categories</h2>
+<div id="category_list">
+</div>
+<h2 id="transactions_title">Transactions</h2>
+<form>
+    <div id="transactions">
+    </div>
+</form>
+<div id="info">
+    <table>
+        <td>
+        <th>
+            Created by Romulus10
+        </th>
+        <th id="version">
+        </th>
+        <th id="date">
+        </th>
+        <th id="help">
+            <a href="help.html">Help</a>
+        </th>
+        <th id="print">
+            <a href="javascript:print()">Print</a>
+        </th>
+        </td>
+    </table>
+</div>
+</body>
 </html>

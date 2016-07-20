@@ -47,8 +47,8 @@ window.onload = function () {
     }
 };
 
-newTable = function () {
-    var name = prompt("New Account Name:");
+new_account = function (name) {
+    console.log("Creating new account.");
     current_account = name;
     document.getElementById("account").innerHTML = name;
     document.getElementById("total").innerHTML = "$0.00";
@@ -64,12 +64,30 @@ newTable = function () {
     checkDatabase();
 };
 
-addTransaction = function () {
+newTable = function (name) {
+    var name = prompt("New Account Name:");
+    new_account(name);
+};
+
+add_new_income = function (n, d, c, a) {
     console.log("Adding new transaction to database.");
+    total = parseFloat(total) + parseFloat(a);
+    lib.insert(current_account, {name: n, category: c, date: d, amount: a});
+    lib.commit();
+    checkDatabase();
+};
+
+addTransaction = function () {
     var n = prompt("Transaction name:");
     var c = prompt("Transaction category:");
     var d = prompt("Transaction date:");
     var a = prompt("Amount:");
+    add_new_income(n, c, d, a);
+};
+
+add_expense = function (n, c, d, a) {
+    console.log("Adding new transaction to database.");
+    a = a * -1;
     total = parseFloat(total) + parseFloat(a);
     lib.insert(current_account, {name: n, category: c, date: d, amount: a});
     lib.commit();
@@ -77,16 +95,12 @@ addTransaction = function () {
 };
 
 subTransaction = function () {
-    console.log("Adding new transaction to database.");
     var n = prompt("Transaction name:");
     var c = prompt("Transaction category:");
     var d = prompt("Transaction date:");
     var a = prompt("Amount:");
-    a = a * -1;
-    total = parseFloat(total) + parseFloat(a);
-    lib.insert(current_account, {name: n, category: c, date: d, amount: a});
-    lib.commit();
-    checkDatabase();
+    add_expense(n, c, d, a);
+
 };
 
 delTransaction = function (id) {
@@ -144,12 +158,16 @@ checkDatabase = function () {
     console.log("DEBUG: the current total is {0}".supplant([total]));
 };
 
-switchAccount = function () {
-    var name = prompt("Switch to Account:");
+swap_active_account = function (name) {
     current_account = name;
     document.getElementById("account").innerHTML = name;
     document.getElementById("total").innerHTML = "$0.00";
     checkDatabase();
+};
+
+switchAccount = function () {
+    var name = prompt("Switch to Account:");
+    swap_active_account(name)
 };
 
 reset = function () {
@@ -164,8 +182,8 @@ reset = function () {
     }
 };
 
-print = function(){
-console.log("Creating new printable page.");
-x = lib.queryAll();
-console.log(x);
+print = function () {
+    console.log("Creating new printable page.");
+    var x = lib.queryAll();
+    console.log(x);
 };
