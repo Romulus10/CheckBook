@@ -36,6 +36,7 @@ window.onload = function () {
     //alert("Categories are not working yet.");
     //alert("Offline use of this app is not yet supported."); Removed in v0.1.1 revision 2
     var cook = document.cookie;
+    console.log(cook);
     if (cook != ("version=" + version)) {
         var appCache = window.applicationCache;
         console.log(appCache.status);

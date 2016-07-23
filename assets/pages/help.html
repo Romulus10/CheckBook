@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<link rel="stylesheet" href="/assets/styles/help.css" type="text/css" media="screen,mobile" title="main" charset="utf-8" />
-		<link rel="apple-touch-icon" href="assets/images/app.png" />
-		<title>CheckBook</title>
-	</head>
-	<body>
-	<button onclick="self.location = 'index.html'">Back</button>
-	<h1>CheckBook Help</h1>
-		<div id="info">
-			<table>
-				<td>
-					<th>
-						Created by Romulus10
-					</th>
-					<th>
-					<a href="http://github.com/Romulus10/CheckBook/">GitHub</a>
-					</th
-				</td>
-			</table>
-		</div>
-	</body>
+<head>
+	<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<link rel="stylesheet" href="assets/styles/help.css" type="text/css" media="screen,mobile" title="main"
+		  charset="utf-8"/>
+	<link rel="apple-touch-icon" href="assets/images/app.png"/>
+	<title>CheckBook</title>
+</head>
+<body>
+<button onclick="self.location = 'index.html'">Back</button>
+<h1>CheckBook Help</h1>
+<h2>Accounts</h2>
+<h2>Transactions</h2>
+<h2>Scripting</h2>
+CheckBook provides a system for JavaScript application scripting through exposing functions in the application itself.
+<h3>Exposed Application Functions</h3>
+<h4>checkDatabase()</h4>
+Updates the UI by forcing a query on the database. NOTE: You MUST run this function at least once at the end of every
+script to make sure that the UI correctly represents the current database.
+<div id="info">
+	<table>
+		<td>
+		<th>
+			Created by Romulus10
+		</th>
+		<th>
+			<a href="http://github.com/Romulus10/CheckBook/">GitHub</a>
+		</th>
+		</td>
+	</table>
+</div>
+</body>
 </html>
