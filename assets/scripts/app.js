@@ -5,7 +5,7 @@ var current_account;
 var lib;
 var total;
 var count;
-var version = "0.1.2";
+var version = "0.1.3";
 var date = "7/14/16";
 var dictionary = {};
 
